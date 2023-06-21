@@ -4,22 +4,18 @@ using MyBankConsoleApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MyBankConsoleApp.Menus
 {
-    public static class AccountMenu
+    public static class AccountMenu 
     {
        
         public  static User user;
         public static  Account account;
 
-        //AccountMenu (User user, Account account)
-        //{
-        //   user = user;
-        //   account = account;
-        //}
 
         public static void ShowMenu()
         {
@@ -60,7 +56,7 @@ namespace MyBankConsoleApp.Menus
                 case "3":
                     Console.Write("Enter the amount to deposit: ");
                     decimal depositAmount = decimal.Parse(Console.ReadLine());
-                    //Account.Deposit(depositAmount);
+                    
                     if (depositAmount > 0)
                     {
                         Account.Balance += depositAmount;
@@ -81,7 +77,7 @@ namespace MyBankConsoleApp.Menus
                         if (transferAmount > 0 && transferAmount <= Account.Balance)
                         {
                             Account.Balance -= transferAmount;
-                         //   recipientAccount.Balance += transferAmount;
+                        
                             Console.WriteLine("Transfer successful!");
                         }
                         else
@@ -91,6 +87,11 @@ namespace MyBankConsoleApp.Menus
                    
                     break;
                 case "5":
+                    Console.WriteLine("print statement");
+                    PrintAccounts();
+                    break;
+
+                case "6":
                     Console.WriteLine("Logging out....");
                     BankService.Login();
                     break;
@@ -105,35 +106,67 @@ namespace MyBankConsoleApp.Menus
         }
 
 
-
-
-        /*public static void Transfer(long fromAccountNumber, long toAccountNumber, decimal amount) // Change the parameter types to long
-        {
-            // Get the accounts involved in the transfer
-            Account fromAccount = GetAccount(fromAccountNumber);
-            Account toAccount = GetAccount(toAccountNumber);
-
-            // Withdraw the amount from the sender's account
-            fromAccount.Withdraw(amount);
-
-            // Deposit the amount into the recipient's account
-            toAccount.Deposit(amount);
-        }
-
         // Method to print all accounts in the bank
+
+          public class BankAccountTransactions
+         {
+            public string FullName { get; set; }
+            public  int AccountNumber { get; set; }
+
+            public string AccountType { get; set; }
+
+            public int Balance { get; set; }
+
+            public string Note { get; set; }
+
+
+            public  BankAccountTransactions(string fullName, int accountNumber, string accountType, int balance, string note)
+            {
+
+                FullName = fullName;
+                AccountNumber = accountNumber;
+                AccountType = accountType;
+                Balance = balance;
+                Note = note;
+
+            }
+
+          }
+
+
+
+
+
+
         public static void PrintAccounts()
         {
+            Console.WriteLine("write your fullName");
+           string? fullName = Console.ReadLine();
+           
+            Console.WriteLine("write your Account Number");
+            int accountNumber = int.Parse(Console.ReadLine());
+            
+            Console.WriteLine("write your Account Type");
+            string? accountType = Console.ReadLine();
+            
+            Console.WriteLine(" Acount Balance?");
+            int balance = int.Parse(Console.ReadLine());
+            
+            Console.WriteLine("write a note");
+            string? note = Console.ReadLine();
+
+            BankAccountTransactions banktrans = new(fullName, accountNumber, accountType, balance , note);
+            
             Console.WriteLine("|---------------|------------------|--------------|-------------|--------|");
             Console.WriteLine("| FULL NAME     | ACCOUNT NUMBER   | ACCOUNT TYPE | ACCOUNT BAL | NOTE   |");
             Console.WriteLine("|---------------|------------------|--------------|-------------|--------|");
-            Account acccount = new Account();
-            foreach (var account in Account)
-            {
-                Console.WriteLine($"| {account.FirstName} {account.LastName,-9} | {account.AccountNumber,-16} | {account.AccountType,-13} | {account.Balance,-11} | {account.Note,-6} |");
-            }
+          
+             Console.WriteLine($"| {banktrans.FullName,-12} | {banktrans.AccountNumber ,-19} | {banktrans.AccountType,-17} | {banktrans.Balance,-14} | {banktrans.Note,-10} |");
+            
 
-            Console.WriteLine("|---------------|------------------|--------------|-------------|--------|");
-        }*/
+           Console.WriteLine("|---------------|------------------|--------------|-------------|--------|");
+        }
+
     }
 
 }

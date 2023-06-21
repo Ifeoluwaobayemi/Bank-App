@@ -44,8 +44,9 @@ namespace MyBankConsoleApp.Services
 
             Console.Write("Enter your preferred password: ");
             string? password = Password.HidePassword();
-            User? user = new User(firstname, lastname, email, password);
+            User newUser = new(firstname,lastname, email, password);
 
+            Console.Clear();
             Console.WriteLine("Select account type");
             Console.WriteLine("1. Savings");
             Console.WriteLine("2. Current");
@@ -80,17 +81,7 @@ namespace MyBankConsoleApp.Services
                     break;
             }
 
-
-
-           // Account account = new Account
-           // {
-               // AccountNumber = Guid.NewGuid().ToString(),
-          //      AccountType = accountType,
-            //    Balance = 0
-           // };
-
-            
-
+    
             Console.WriteLine("Account Created Successfully!");
             Console.WriteLine("=============================");
         }

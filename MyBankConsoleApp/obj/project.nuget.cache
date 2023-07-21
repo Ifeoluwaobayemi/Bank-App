@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sRA5X2oYStyof9dN2EUBxFKfcnmG14qLVUiHcRgxN/SysbBClhIY4B/LF9X9EOtYg0Q6nJ14aZeHr7xQL5JN8Q==",
+  "dgSpecHash": "+g02nigxHw0LyzLLZ6zG1KxIMR+5AhMW+TpQtJQ27sOzRuun5ubM0+WH6g/HBkkg2wXPGeUBc9DDEDkiF6T28A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dell\\source\\repos\\MyBankConsoleApp\\MyBankConsoleApp\\MyBankConsoleApp.csproj",
+  "projectFilePath": "C:\\Users\\Dell\\Desktop\\MY PROJECTS\\MyBankConsoleApp\\MyBankConsoleApp\\MyBankConsoleApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dell\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
